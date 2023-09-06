@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const db = require('../models')
 
+//index
 router.get('/', (req, res) => {
     db.Place.find()
     .then((places) => {
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
     })
 })
 
+//create
 router.post('/', (req, res) => {
   db.Place.create(req.body)
   .then(() => {
@@ -23,7 +25,7 @@ router.post('/', (req, res) => {
   })
 })
 
-
+//new
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
@@ -43,6 +45,7 @@ router.put('/:id', (req, res) => {
   res.send('PUT /places/:id stub')
 })
 
+//delete
 router.delete('/:id', (req, res) => {
   res.send('DELETE /places/:id stub')
 })

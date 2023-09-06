@@ -12,18 +12,3 @@ const placeSchema = new mongoose.Schema({
 module.exports = mongoose.model('Place', placeSchema)
 
 
-module.exports = [{
-   
-    name: 'H-Thai-ML',
-    city: 'Seattle',
-    state: 'WA',
-    cuisines: 'Thai, Pan-Asian',
-    pic: '/images/Thai.jpg'
-    
-}, {
-    name: 'Coding Cat Cafe',
-    city: 'Phoenix',
-    state: 'AZ',
-    cuisines: 'Coffee, Bakery',
-    pic: '/images/coffee.jpg'
-}]
