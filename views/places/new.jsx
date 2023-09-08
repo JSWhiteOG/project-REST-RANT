@@ -16,8 +16,9 @@ function new_form (data) {
             <h1>Add a New Place</h1>
             {message}
             <form method="POST" action="/places">
+              
               <div className="row">
-  
+  {/* Name */}
   <div className="col-sm-6 col-md-4 col-lg-3"> <div className="form-group">
     <label htmlFor="name">Place Name</label>
     <input 
@@ -27,14 +28,16 @@ function new_form (data) {
     required />
   </div></div>
   
+  {/* Pic */}
   <div className="col-sm-6 col-md-4 col-lg-3"><div className="form-group">
     <label htmlFor="pic">Place Picture</label>
     <input 
     className="form-control" 
     id="pic" 
-    name="pic" />
+    name="pic"/>
   </div></div>
   
+  {/* City */}
   <div className="col-sm-6 col-md-4 col-lg-3"><div className="form-group">
     <label htmlFor="city">City</label>
     <input 
@@ -43,6 +46,7 @@ function new_form (data) {
     name="city" />
   </div></div>
   
+  {/* State */}
   <div className="col-sm-6 col-md-4 col-lg-3">
   <div className="form-group">
     <label htmlFor="state">State</label>
@@ -52,6 +56,7 @@ function new_form (data) {
     name="state" />
   </div></div>
   
+  {/* Cuisines */}
   <div className="col-sm-6 col-md-4 col-lg-3"><div className="form-group">
     <label htmlFor="cuisines">Cuisines</label>
     <input 
@@ -61,6 +66,7 @@ function new_form (data) {
     required />
   </div></div>
  
+ {/* Founded Year */}
   <div className="col-sm-6 col-md-4 col-lg-3"> 
   <label htmlFor="founded">Founded Year</label>
   <input 
