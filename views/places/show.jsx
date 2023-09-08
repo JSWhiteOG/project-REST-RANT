@@ -1,6 +1,15 @@
 const React = require('react')
 const Def = require('../default')
-
+/// data object
+// {
+//     place: 
+//     {
+//         name: "",
+//         pic: "",
+//         comments: []
+//     },
+//     id: ""
+// }
 function show (data) {
     let comments = (
      <h3 className="inactive">
@@ -62,6 +71,60 @@ function show (data) {
           </div>
           <h1>Comments</h1>
            {comments}
+
+          
+            
+            <form method="POST" action={`/places/${data.id}/comment`}>
+         {/*Author*/}   
+    <div className="col-sm-6 col-md-4 col-lg-3 justify-content-center"> <div className="form-group">
+        <label htmlFor="name">Author</label>
+      <input 
+        className="form-control" 
+        type="text"
+        id="author" 
+        name="author" 
+        required/>
+      </div></div>
+  
+  {/*Rant*/}
+  <div className="col-sm-6 col-md-4 col-lg-3"> <div className="form-group">
+        <label htmlFor="name">Rant</label>
+      <input 
+        type="checkbox"
+        id="rant" 
+        name="rant" 
+        />
+       
+       {/*Star Rating */}
+       <div className="col-sm-6 col-md-4 col-lg-3"> <div className="form-group">
+        <label htmlFor="name">Star Rating</label>
+      <input 
+        className="form-control" 
+        type="number" step={0.5}
+        id="stars" 
+        name="stars" 
+        min={0} max={5}
+        required />
+      </div></div>
+       
+       {/*Content*/}
+      <div className="col-sm-6 col-md-4 col-lg-3"> <div className="form-group">
+        <label htmlFor="name">Content</label>
+      <input 
+        className="form-control" 
+        type="text"
+        id="name" 
+        name="name" 
+        required />
+      </div></div>
+  
+     
+   
+      
+      </div></div>
+      <button className='btn btn-warning' type='submit'>Add Comment</button>
+            </form>
+          
           </main>
         </Def>
     )
