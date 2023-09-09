@@ -1,24 +1,35 @@
 const React = require('react')
 const Def = require('../default')
-/// data object
-// {
-//     place: 
-//     {
-//         name: "",
-//         pic: "",
-//         comments: []
-//     },
-//     id: ""
-// }
+
 function show (data) {
     let comments = (
      <h3 className="inactive">
       No Comments yet!
      </h3>
     )
-    if (data.place.comments.length) {
-      comments = data.place.comments.map(c => {
-        return (
+    let rating = (
+        <h3 className="inactive">
+          Not yet rated
+        </h3>
+      )
+      if (data.place.comments.length) {
+        let sumRatings = data.place.comments.reduce((tot, c) => {
+          return tot + c.stars
+        }, 0)
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        let stars = ''
+        for (let i = 0; i < averageRating; i++) {
+          stars += '* '
+        }
+        rating = (
+          <h3>
+            {stars} stars
+          </h3>
+        )
+      
+        comments = data.place.comments.map(c => {
+          return (
+            
           <div className="border">
             <h2 className="rant">{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}</h2>
             <h4>{c.content}</h4>
@@ -46,34 +57,18 @@ function show (data) {
             <h3>{data.place.showEstablished()}</h3>
         <h4>Serving {data.place.cuisines}</h4>
         
-        
         <hr></hr>
         
         <h1>Ratings</h1>
-            <h2>Currently unrated</h2>
+            {rating}
         
         <hr></hr>
-        
-        
-                
-        <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
-              Edit
-        </a>
-                    
-        <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
-            <button type="submit" className="btn btn-danger">
-                Delete
-            </button>
-        </form> 
- 
 
          </div>
           </div>
           <h1>Comments</h1>
            {comments}
 
-          
-            
             <form method="POST" action={`/places/${data.id}/comment`}>
          {/*Author*/}   
     <div className="col-sm-6 col-md-4 col-lg-3 justify-content-center"> <div className="form-group">
@@ -118,13 +113,21 @@ function show (data) {
         required />
       </div></div>
   
-     
-   
-      
       </div></div>
-      <button className='btn btn-warning' type='submit'>Add Comment</button>
+      {/*Comment*/}
+      <button className='btn btn-success' type='submit'>Add Comment</button>
             </form>
           
+          {/*Edit*/}
+          <a href={`/places/${data.id}/edit`} className="btn btn-primary"> 
+              Edit
+        </a>
+                   {/*Delete*/} 
+        <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+            <button type="submit" className="btn btn-danger">
+                Delete
+            </button>
+        </form> 
           </main>
         </Def>
     )

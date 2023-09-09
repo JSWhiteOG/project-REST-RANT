@@ -6,8 +6,10 @@ function edit_form (data) {
         <Def>
           <main>
             <h1>Edit an existing place</h1>
-            <form method="POST" action={`/places/${data.id}?_method=PUT`}>
+            <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
 <div className="row">
+  
+   {/*Name*/}
   <div className="form-group col-sm-6">
     <label htmlFor="name">Place Name</label>
     <input 
@@ -16,8 +18,9 @@ function edit_form (data) {
     name="name" 
     value={data.place.name}
     required />
-  </div></div>
-  <div className="row">
+  </div>
+  
+  {/*Picture*/}
   <div className="form-group col-sm-6">
     <label htmlFor="pic">Place Picture</label>
     <input 
@@ -25,8 +28,9 @@ function edit_form (data) {
     id="pic" 
     name="pic"
     value={data.place.pic} />
-  </div></div>
-  <div className="row">
+  </div>
+ 
+ {/*City*/}
   <div className="form-group col-sm-6">
     <label htmlFor="city">City</label>
     <input 
@@ -34,8 +38,9 @@ function edit_form (data) {
     id="city" 
     name="city" 
     value={data.place.city}/>
-  </div></div>
-  <div className="row">
+  </div>
+  
+  {/*State*/}
   <div className="form-group col-sm-6">
     <label htmlFor="state">State</label>
     <input 
@@ -43,8 +48,9 @@ function edit_form (data) {
     id="state" 
     name="state" 
     value={data.place.state}/>
-  </div></div>
-  <div className="row">
+  </div>
+  
+  {/*Cuisines*/}
   <div className="form-group col-sm-6">
     <label htmlFor="cuisines">Cuisines</label>
     <input 
@@ -53,8 +59,21 @@ function edit_form (data) {
     name="cuisines" 
     value={data.place.cuisines}
     required />
-  </div></div>
-  <input className="btn btn-primary" type="submit" value="Edit Place" />
+  </div>
+  
+  {/*Year of Founding*/}
+  <div className="form-group col-sm-6">
+    <label htmlFor="founded">Year of Founding</label>
+    <input 
+    className="form-control" 
+    id="founded" 
+    name="founded" 
+    value={data.place.founded}
+    />
+  </div>
+  
+  </div>
+  <input className="btn btn-primary" type="submit" value="Update Place" />
 </form>
 
            
