@@ -77,6 +77,17 @@ router.delete('/:id', (req, res) => {
       res.render('error404')
   })
 })
+//DELETE comment (incomplete)
+router.delete('/:id/comment/:id', (req, res) => {
+  db.Comment.findByIdAndDelete(req.params.id)
+  .then(() => {
+      res.redirect(`/places/${comments.id}`)
+  })
+  .catch(err => {
+     console.log('err', err)
+      res.render('error404')
+  })
+})
 
 //EDIT
 router.get('/:id/edit', (req, res) => {
