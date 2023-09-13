@@ -19,8 +19,8 @@ function show (data) {
                  </div>
           
         )
-      }
-    
+                
+  
     return (
         <Def>
           <main>
@@ -111,7 +111,7 @@ function show (data) {
           </main>
         </Def>
     )
-
+}
 
 module.exports = show
     
