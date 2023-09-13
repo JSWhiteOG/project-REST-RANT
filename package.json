@@ -11,7 +11,7 @@
   "name": "deployment",        
   "version": "1.0.0",
   "engines": {
-    "node": "14.15.4"
+    "node.js": "18"
   },
   
   "main": "index.js",
