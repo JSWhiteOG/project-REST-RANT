@@ -1,9 +1,7 @@
-require('dotenv').config()
 const mongoose = require('mongoose')
 
-mongoose
-.connect(process.env.MONGO_URI)
-.then(() => { console.log('YOU DID IT', process.env.MONGO_URI) })
+mongoose.connect('mongodb+srv://JSWhiteOG:ThatOneGuy1@cluster0.9poy94z.mongodb.net/project-REST-RANT')
+.then(() => { console.log('YOU DID IT', 'mongodb+srv://JSWhiteOG:ThatOneGuy1@cluster0.9poy94z.mongodb.net/project-REST-RANT') })
 
 module.exports.Place = require('./places')
 module.exports.Comment = require('./comment')
