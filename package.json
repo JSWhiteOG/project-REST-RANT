@@ -8,11 +8,17 @@
     "node.js": "^0.0.1-security",
     "react": "^16.14.0"
   },
-  "name": "project-rest-rant",
+  "name": "deployment",        
   "version": "1.0.0",
+  "engines": {
+    "node": "14.15.4"
+  },
+  
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  
+    "scripts": {
+      "start": "node index.js"
+    
   },
   "keywords": [],
   "author": "",
